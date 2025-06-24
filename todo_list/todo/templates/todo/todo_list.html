@@ -1,0 +1,61 @@
+{% extends 'todo/base.html' %}
+{%block title%}ToDo{%endblock title%}
+{% block content %}
+<div class="container mt-4">
+    <a href="{% url 'todo_create' %}" class="btn btn-success mb-4">➕ Новая заметка</a>
+    <h2 class="mb-4">Список задач</h2>
+    <div class="row">
+        {% for todo in todos %}
+        {% include 'todo/todo_card.html' with todo=todo %}
+        {% empty %}
+        <p>У вас нет задач.</p>
+        {% endfor %}
+    </div>
+
+
+    <!-- Добавляем навигацию по страницам -->
+<div class="pagination justify-content-center mt-4">
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1">&laquo; Первая</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+            </li>
+        {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">&laquo; Первая</span>
+            </li>
+            <li class="page-item disabled">
+                <span class="page-link">Предыдущая</span>
+            </li>
+        {% endif %}
+
+        <li class="page-item active">
+            <span class="page-link">
+                {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+        </li>
+
+        {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Следующая</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Последняя &raquo;</a>
+            </li>
+        {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">Следующая</span>
+            </li>
+            <li class="page-item disabled">
+                <span class="page-link">Последняя &raquo;</span>
+            </li>
+        {% endif %}
+    </ul>
+</div>
+
+</div>
+
+{% endblock %}

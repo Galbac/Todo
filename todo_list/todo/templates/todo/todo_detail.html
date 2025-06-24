@@ -1,0 +1,40 @@
+{% extends "todo/base.html" %}
+{% block title %}{{todo.title}}{%endblock title%}
+{% block content %}
+<div class="card mt-4 shadow-sm">
+    {% if todo.photo %}
+    <img src="{{ todo.photo.url }}" class="card-img-top" alt="Фото задачи"
+         style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+
+    {% endif %}
+
+    <div class="card-body">
+        <h3 class="card-title">{{ todo.title }}</h3>
+
+        <p class="card-text">
+            <strong>Описание:</strong> {{ todo.description }}
+        </p>
+
+        <p class="card-text">
+            <strong>Выполнено:</strong>
+            {% if todo.is_completed %}
+            ✅ Да
+            {% else %}
+            ❌ Нет
+            {% endif %}
+        </p>
+
+        {% if todo.due_date %}
+        <p class="card-text"><strong>Крайний срок:</strong> {{ todo.due_date }}</p>
+        {% endif %}
+
+        <p class="card-text">
+            <small class="text-muted">Создано: {{ todo.created_at|date:"d.m.Y H:i" }}</small><br>
+            <small class="text-muted">Обновлено: {{ todo.updated_at|date:"d.m.Y H:i" }}</small>
+        </p>
+
+        <a href="{% url 'todo_update' slug=todo.slug %}" class="btn btn-warning">✏️ Редактировать</a>
+        <a href="{{todo.get_absolute_url}}" class="btn btn-secondary">⬅️ Назад</a>
+    </div>
+</div>
+{% endblock %}

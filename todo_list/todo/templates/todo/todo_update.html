@@ -1,0 +1,21 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+<h2>Редактирование задачи</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="card mb-4 shadow-sm">
+        {% if form.photo.value %}
+        <img src="{{ form.photo.value.url }}" class="card-img-top" alt="Фото задачи">
+        {% endif %}
+
+        <div class="card-body">
+            {{ form.as_p }}
+
+            <button type="submit" class="btn btn-primary mt-2">Сохранить</button>
+        </div>
+    </div>
+</form>
+{% endblock content %}
