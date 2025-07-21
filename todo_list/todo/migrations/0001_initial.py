@@ -7,21 +7,52 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='TodoList',
+            name="TodoList",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255, verbose_name='Название заголовка')),
-                ('description', models.TextField(verbose_name='Описание')),
-                ('is_completed', models.BooleanField(default=False, verbose_name='Выполнено')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Дата обновления')),
-                ('due_date', models.DateField(blank=True, null=True, verbose_name='Крайний срок')),
-                ('photo', models.ImageField(blank=True, null=True, upload_to='', verbose_name='Фото')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(max_length=255, verbose_name="Название заголовка"),
+                ),
+                ("description", models.TextField(verbose_name="Описание")),
+                (
+                    "is_completed",
+                    models.BooleanField(default=False, verbose_name="Выполнено"),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Дата создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Дата обновления"),
+                ),
+                (
+                    "due_date",
+                    models.DateField(
+                        blank=True, null=True, verbose_name="Крайний срок"
+                    ),
+                ),
+                (
+                    "photo",
+                    models.ImageField(
+                        blank=True, null=True, upload_to="", verbose_name="Фото"
+                    ),
+                ),
             ],
         ),
     ]
