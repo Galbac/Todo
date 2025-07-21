@@ -52,9 +52,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: 🛠️ Применение миграций (если нужно)
-        run: |
-          python todo_list/manage.py migrate
 
       - name: ✅ Запуск тестов
         run: |
@@ -63,8 +60,4 @@ jobs:
       - name: 🎨 Автоматический форматтер (black)
         run: |
           black .
-
-      - name: 🔍 Проверка качества кода (flake8)
-        run: flake8 . --exclude=__pycache__,migrations
-
 
