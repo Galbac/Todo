@@ -58,7 +58,7 @@ jobs:
 
       - name: ✅ Запуск тестов
         run: |
-          python todo_list/manage.py test
+          python todo_list/manage.py test todo -v 2
 
       - name: 🔍 Проверка качества кода (flake8)
         run: flake8 . --exclude=__pycache__,migrations
