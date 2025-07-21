@@ -63,7 +63,6 @@ jobs:
       - name: 🎨 Автоматический форматтер (black)
         run: |
           black .
-        
 
       - name: 🔍 Проверка качества кода (flake8)
         run: flake8 . --exclude=__pycache__,migrations
