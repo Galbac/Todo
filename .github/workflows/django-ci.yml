@@ -60,8 +60,13 @@ jobs:
         run: |
           python todo_list/manage.py test todo -v 2
 
+      - name: 🎨 Автоматический форматтер и проверка форматирования (black)
+        run: |
+          black .
+          black --check .
+        
+
       - name: 🔍 Проверка качества кода (flake8)
         run: flake8 . --exclude=__pycache__,migrations
 
-      - name: 🎨 Проверка форматирования (black)
-        run: black --check .
+
