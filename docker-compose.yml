@@ -3,7 +3,6 @@ services:
   db:
     image: postgres
     restart: always
-    container_name: todo-db
     environment:
       POSTGRES_DB: ${DATABASE_NAME}
       POSTGRES_USER: ${DATABASE_USER}
@@ -21,7 +20,6 @@ services:
       - 8080:8080
     networks:
       - db_net
-    container_name: todo_adminer
 
   web:
     build: .
@@ -36,7 +34,6 @@ services:
       - db_net
     volumes:
       - .:/app
-    container_name: todo_web
 
 networks:
   db_net:
