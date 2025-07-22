@@ -69,4 +69,4 @@ jobs:
           ssh-keyscan -H 46.8.69.34 >> ~/.ssh/known_hosts
 
       - name: Развернуть на сервере
-        run: ssh -i ~/.ssh/id_ed25519 root@46.8.69.34 "cd /Todo && git pull && docker-compose up -d --build --force-recreate"
+        run: ssh -i ~/.ssh/id_ed25519 root@46.8.69.34 "cd /root/Todo && git pull && docker-compose up -d --build --force-recreate"
