@@ -6,9 +6,13 @@ from django.views.generic import (
     CreateView,
     DeleteView,
 )
+from rich.traceback import install
 
-from .models import TodoList
 from .forms import TodoForm
+from .models import TodoList
+
+# Включаем красивый и цветной вывод ошибок
+install()
 
 
 # Create your views here.

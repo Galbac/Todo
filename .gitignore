@@ -1,5 +1,6 @@
 # ⛔ Python
 __pycache__/
+*.pyc
 *.py[cod]
 *.pyo
 *.pyd
@@ -13,7 +14,6 @@ env/
 
 # ⛔ Конфигурационные и чувствительные файлы
 *.env
-*.env.*
 .envrc
 secrets.json
 config.yaml
