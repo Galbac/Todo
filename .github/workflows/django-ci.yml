@@ -68,4 +68,4 @@ jobs:
           echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H 46.8.69.34 >> ~/.ssh/known_hosts
-          ssh -i ~/.ssh/id_ed25519 root@46.8.69.34 "cd /root/Todo && git pull && docker-compose down && docker-compose up -d --build --force-recreate"
+          ssh -i ~/.ssh/id_ed25519 root@46.8.69.34 "cd /root/Todo && git pull && docker-compose pull && docker-compose up -d --build --no-deps --force-recreate web"
